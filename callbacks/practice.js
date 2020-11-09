@@ -171,14 +171,25 @@ uniq(names, function(uniqArr){
 
 //Code Here 
 
-function each(arr, cb) {
-  for (let i = 0; i <= arr.length; i++) {
-      cb(arr[i], i)
+// function each(arr, cb) {
+//   for (let i = 0; i <= arr.length; i++) {
+//       cb(arr[i], i)
+//   }
+// }
+
+// function cb(name, index) {
+//   console.log(name, index)
+// }
+
+function each(arr, callback) {
+  for (let i = 0; i < arr.length; i++) {
+    callback(arr[i], i)
   }
+  return callback
 }
 
-function cb(arr1, name) {
-  console.log(arr1, name)
+function callback(name, index){
+  console.log(callback(name, index))
 }
 
 
@@ -202,15 +213,20 @@ each(names, function(item, indice){
 
 // Code here
 
-function getUserById(arr, id2, cb) {
-  for (let i = 0; i<= arr.length; i++) {
-      if (id2 === arr[i.id]) {
-      cb(arr[i])
+function getUserById(users, id2, cb) {
+  for (let i = 0; i <= users.length; i++) {
+      if (id2 === users[i].id) {
+      cb(users[i])
+      return cb
       }
     
   }
+  
 }
 
+function callback(name) {
+  console.log(name)
+}
 // Do not edit the code below.
 var users = [
   {
